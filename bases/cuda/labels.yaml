@@ -1,0 +1,6 @@
+# labels.yaml for the golden CUDA base image
+org.opencontainers.image.title: "Golden CUDA Base Image"
+org.opencontainers.image.description: "A secure and minimal base image with CUDA 12.5.1 for AdaptNova projects."
+org.opencontainers.image.version: "1.0.0"
+org.opencontainers.image.licenses: "MIT"
+org.opencontainers.image.url: "https://github.com/adaptnova/zeropoint-portal/tree/main/bases/cuda"
