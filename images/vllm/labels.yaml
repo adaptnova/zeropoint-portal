@@ -1,0 +1,6 @@
+# labels.yaml for the vllm application image
+org.opencontainers.image.title: "vLLM Application Image"
+org.opencontainers.image.description: "A secure and optimized image for running the vLLM engine."
+org.opencontainers.image.version: "1.0.0"
+org.opencontainers.image.licenses: "Apache-2.0"
+org.opencontainers.image.url: "https://github.com/adaptnova/zeropoint-portal/tree/main/images/vllm"
