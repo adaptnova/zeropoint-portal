@@ -1,0 +1,40 @@
+# Local front door
+:1111 {
+  encode zstd gzip
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "SAMEORIGIN"
+    Referrer-Policy "no-referrer"
+  }
+
+  # Landing page (static)
+  route / {
+    root * /opt/portal
+    file_server
+  }
+
+  handle_path /webui/* {
+    reverse_proxy 127.0.0.1:7500
+  }
+
+  handle_path /vllm/* {
+    reverse_proxy 127.0.0.1:8000
+  }
+
+  handle_path /ray/* {
+    reverse_proxy 127.0.0.1:8265
+  }
+
+  handle_path /syncthing/* {
+    reverse_proxy 127.0.0.1:8384
+  }
+
+  handle_path /jupyter/* {
+    reverse_proxy 127.0.0.1:8080
+  }
+
+  handle_path /metrics/* {
+    reverse_proxy 127.0.0.1:9100
+  }
+}

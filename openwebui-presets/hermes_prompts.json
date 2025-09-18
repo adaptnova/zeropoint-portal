@@ -1,0 +1,56 @@
+{
+  "name": "Hermes 4 Prompt Templates",
+  "version": "1",
+  "templates": [
+    {
+      "id": "hermes_basic_chat",
+      "label": "Hermes 4 • Basic Chat",
+      "system": "<|start_header_id|>system<|end_header_id|>\nYou are Hermes 4. Be concise and helpful.<|eot_id|>\n",
+      "user_wrapper_prefix": "<|start_header_id|>user<|end_header_id|>\n",
+      "assistant_wrapper_prefix": "<|start_header_id|>assistant<|end_header_id|>\n",
+      "message_suffix": "<|eot_id|>\n",
+      "inference_defaults": {
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "max_new_tokens": 8192,
+        "stream": true
+      }
+    },
+    {
+      "id": "hermes_reasoning",
+      "label": "Hermes 4 • Reasoning Mode",
+      "system": "<|start_header_id|>system<|end_header_id|>\nYou are a deep thinking AI, you may use extremely long chains of thought to deeply consider the problem and deliberate with yourself via systematic reasoning processes to help come to a correct solution prior to answering. You should enclose your thoughts and internal monologue inside <think> </think> tags, and then provide your solution or response to the problem.<|eot_id|>\n",
+      "user_wrapper_prefix": "<|start_header_id|>user<|end_header_id|>\n",
+      "assistant_wrapper_prefix": "<|start_header_id|>assistant<|end_header_id|>\n",
+      "message_suffix": "<|eot_id|>\n",
+      "inference_defaults": {
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "max_new_tokens": 8192,
+        "stream": true,
+        "extra_body": {
+          "thinking": true,
+          "keep_cots": true
+        }
+      }
+    },
+    {
+      "id": "hermes_tools",
+      "label": "Hermes 4 • Tool Use",
+      "system": "<|start_header_id|>system<|end_header_id|>\nYou are a function-calling AI. Tools are provided inside <tools>…</tools>.\nWhen appropriate, call a tool by emitting a <tool_call>{...}</tool_call> object.\nAfter a tool responds (as <tool_response>), continue reasoning inside <think> and produce the final answer.\n<tools>\n{\"type\":\"function\",\"function\":{\"name\":\"get_weather\",\"description\":\"Get weather by city\",\"parameters\":{\"type\":\"object\",\"properties\":{\"city\":{\"type\":\"string\"}},\"required\":[\"city\"]}}}
+</tools><|eot_id|>\n",
+      "user_wrapper_prefix": "<|start_header_id|>user<|end_header_id|>\n",
+      "assistant_wrapper_prefix": "<|start_header_id|>assistant<|end_header_id|>\n",
+      "message_suffix": "<|eot_id|>\n",
+      "inference_defaults": {
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "max_new_tokens": 8192,
+        "stream": true
+      }
+    }
+  ]
+}
